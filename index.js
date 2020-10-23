@@ -4,8 +4,8 @@ const uploadFile = require('./uploadFile');
 async function main() {
   try {
     // inputs from action
-    const url = core.getInput('url');
-    const methodInput = core.getInput('method');
+    const url = "https://www.pgyer.com/apiv2/app/upload";
+    const methodInput = "POST";
     const method = methodInput.toLowerCase();
     const forms = core.getInput('forms');
     const formsMap = jsonToMap(forms);
