@@ -19,22 +19,19 @@ async function main() {
     const response = await uploadFile(url, formsMap, fileFormsMap);
 
     const statusCode = response.status;
-    const data = response.data;
-    const outputObject = {
-      url,
-      method,
-      statusCode,
-      data
-    };
-
-    const consoleOutputJSON = JSON.stringify(outputObject, undefined, 2);
-    console.log(consoleOutputJSON);
+    const respBody = response.data;
 
     if (statusCode >= 400) {
       core.setFailed(`HTTP request failed with status code: ${statusCode}`);
     } else {
-      const outputJSON = JSON.stringify(outputObject);
-      core.setOutput('output', outputJSON);
+      core.setOutput("uploadUrl", url);
+      core.setOutput("respCode", respBody.core);
+      core.setOutput("respMessage", respBody.message);
+      core.setOutput("filename", respBody.data.buildFileKey);
+      core.setOutput("fileSize", respBody.data.buildFileKey);
+      core.setOutput("applicationId", respBody.data.buildIdentifier);
+      core.setOutput("updatedTime", respBody.data.buildUpdated);
+      core.setOutput("invitationQRCode", respBody.data.buildQRCodeURL);
     }
   } catch (error) {
     console.log(error);

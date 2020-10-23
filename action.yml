@@ -1,6 +1,6 @@
-name: 'Upload File Action'
-description: 'upload file'
-author: 'Jant Hsueh(薛瑄)'
+name: 'Upload Pgyer file Action'
+description: 'upload Pgyer file'
+author: 'JantHsueh | lumotime'
 branding:
   icon: arrow-right-circle
   color: gray-dark
@@ -20,8 +20,23 @@ inputs:
     required: false
 
 outputs:
-  output:
-    description: 'data output from the upload file'
+  uploadUrl:
+    description: 'upload app action url'
+  respCode:
+    description: 'upload response code'
+  respMessage:
+    description: 'upload response message'
+  filename:
+    description: 'apk filename'
+  fileSize:
+    description: 'apk file size'
+  applicationId: 
+    description: 'apk application Id'
+  updatedTime:
+    description: 'apk upload time'
+  invitationQRCode:
+    description: 'apk Invitation QR code'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
