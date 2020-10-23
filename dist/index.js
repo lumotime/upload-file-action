@@ -123,9 +123,7 @@ const uploadFile = __webpack_require__(446);
 async function main() {
   try {
     // inputs from action
-    const url = core.getInput('url');
-    const methodInput = core.getInput('method');
-    const method = methodInput.toLowerCase();
+    const url = "https://www.pgyer.com/apiv2/app/upload";
     const forms = core.getInput('forms');
     const formsMap = jsonToMap(forms);
     const fileForms = core.getInput('fileForms');
